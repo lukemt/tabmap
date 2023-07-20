@@ -1,4 +1,5 @@
-import { data, type Link } from "./data";
+import { data } from "./data";
+import type { Link } from "./types";
 
 export function getById(id: number) {
   return data.find((item) => item.id === id);

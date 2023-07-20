@@ -1,9 +1,4 @@
-export interface Link {
-  id: number;
-  title: string;
-  url: string;
-  parent: number;
-}
+import type { Link } from "./types";
 
 export const data: Link[] = [
   {
