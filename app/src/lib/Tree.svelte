@@ -1,9 +1,9 @@
 <script lang="ts">
   import { getCols } from "./getters";
 
-export let parent: number;
+  export let parent: number;
 
-const tabsByCol = getCols(parent);
+  const tabsByCol = getCols(parent);
 
 </script>
 
