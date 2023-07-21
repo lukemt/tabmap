@@ -1,9 +1,10 @@
 <script lang="ts">
   import { getCols } from "./getters";
+  import type { TabInfo } from "./types";
 
-  export let parent: number;
+  export let parent: TabInfo;
 
-  const tabsByCol = getCols(parent);
+  const tabsByCol = getCols(parent, 50);
 
 </script>
 

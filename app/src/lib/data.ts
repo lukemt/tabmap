@@ -1,6 +1,6 @@
-import type { Link } from "./types";
+import type { TabInfo } from "./types";
 
-export const data: Link[] = [
+export const data: TabInfo[] = [
   {
     id: 1,
     title: "Link Map",

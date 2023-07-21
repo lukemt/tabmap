@@ -20,7 +20,7 @@
   <div class="card">
     <Counter />
     {#each getChildren(1) as child}
-      <Tree parent={child.id} />
+      <Tree parent={child} />
     {/each}
   </div>
 
