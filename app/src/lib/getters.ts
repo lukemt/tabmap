@@ -1,12 +1,21 @@
 import { data } from "./data";
-import type { TabInfo } from "./types";
+import type { TabInfo, TabInfoWithoutFavIconUrl } from "./types";
 
-export function getById(id: number) {
-  return data.find((item) => item.id === id);
+function withFaviconUrl(item: TabInfoWithoutFavIconUrl): TabInfo {
+  // TODO: use extension api to get favicon url
+  const domain = new URL(item.url).hostname;
+  return {
+    ...item,
+    favIconUrl: `https://www.google.com/s2/favicons?domain=${domain}&sz=${"64"}`,
+  };
 }
 
-export function getChildren(parent: number) {
-  return data.filter((item) => item.parent === parent);
+export function getById(id: number): TabInfo {
+  return withFaviconUrl(data.find((item) => item.id === id));
+}
+
+export function getChildren(parent: number): TabInfo[] {
+  return data.filter((item) => item.parent === parent).map(withFaviconUrl);
 }
 
 export function getCols(parent: TabInfo, maxLevel: number): TabInfo[][] {
