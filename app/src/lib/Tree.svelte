@@ -8,33 +8,17 @@
 
 </script>
 
-<div class="flexbox">
+<!-- row -->
+<div class="flex justify-start">
   {#each tabsByCol as tabs}
-    <div class="col">
+    <!-- col -->
+    <div class="flex flex-col justify-center">
       {#each tabs as tab}
-        <div class="tab">
+        <!-- tab -->
+        <div class="border border-black p-4">
           {tab.title}
         </div>
       {/each}
     </div>
   {/each}
 </div>
-
-<style>
-  .flexbox {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-  }
-
-  .col {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-  }
-
-  .tab {
-    border: 1px solid black;
-    padding: 1rem;
-  }
-</style>
