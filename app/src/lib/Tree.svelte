@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Tab from "./Tab.svelte";
+  import TabWrapper from "./TabWrapper.svelte";
 
   import { getCols } from "./getters";
   import type { TabInfo } from "./types";
@@ -10,12 +10,12 @@
 </script>
 
 <!-- row -->
-<div class="flex justify-start gap-16 my-20">
+<div class="flex justify-start gap-28 my-20">
   {#each tabsByCol as tabs}
     <!-- col -->
-    <div class="flex flex-col justify-center gap-4">
+    <div class="flex flex-col justify-center items-center gap-4">
       {#each tabs as tabInfo}
-        <Tab {tabInfo} />
+        <TabWrapper {tabInfo} />
       {/each}
     </div>
   {/each}
