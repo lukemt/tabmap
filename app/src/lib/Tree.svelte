@@ -1,22 +1,19 @@
 <script lang="ts">
   import TabWrapper from "./TabWrapper.svelte";
+  import { getChildren } from "./getters";
 
-  import { getCols } from "./getters";
   import type { TabInfo } from "./types";
 
   export let parent: TabInfo;
 
-  const tabsByCol = getCols(parent, 50);
+  const children = getChildren(parent.id);
 </script>
 
-<!-- row -->
-<div class="flex justify-start gap-28 my-20">
-  {#each tabsByCol as tabs}
-    <!-- col -->
-    <div class="flex flex-col justify-center items-center gap-4">
-      {#each tabs as tabInfo}
-        <TabWrapper {tabInfo} />
-      {/each}
-    </div>
-  {/each}
+<div class="flex justify-start items-center gap-28">
+  <TabWrapper tabInfo={parent} />
+  <div class="flex flex-col gap-4">
+    {#each children as child}
+      <svelte:self parent={child} />
+    {/each}
+  </div>
 </div>

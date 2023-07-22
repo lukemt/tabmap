@@ -20,7 +20,9 @@
   <div class="card">
     <Counter />
     {#each getChildren(1) as child}
-      <Tree parent={child} />
+      <div class="my-16">
+        <Tree parent={child} />
+      </div>
     {/each}
   </div>
 
