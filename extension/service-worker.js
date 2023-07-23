@@ -20,3 +20,11 @@ const openApp = async (tab) => {
 
 // listen for click on extension icon
 chrome.action.onClicked.addListener(openApp);
+
+// listen for keyboard shortcut
+chrome.commands.onCommand.addListener((command) => {
+  console.log(`Command: ${command}`);
+  if (command === "open-app") {
+    openApp();
+  }
+});

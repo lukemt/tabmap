@@ -9,5 +9,20 @@
     "service_worker": "service-worker.js",
     "type": "module"
   },
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+O",
+        "mac": "Command+O"
+      }
+    },
+    "open-app": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+O",
+        "mac": "Command+Shift+O"
+      },
+      "description": "Open tabmap"
+    }
+  },
   "permissions": ["tabs", "tabGroups"]
 }
