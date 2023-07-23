@@ -23,6 +23,8 @@
     "vite": "^4.4.5"
   },
   "dependencies": {
-    "leader-line-new": "^1.1.9"
+    "leader-line-new": "^1.1.9",
+    "vite-plugin-web-extension": "^3.1.2",
+    "webextension-polyfill": "^0.10.0"
   }
 }
