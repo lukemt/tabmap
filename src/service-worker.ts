@@ -1,7 +1,7 @@
 import browser from "webextension-polyfill";
 
 const openApp = async () => {
-  const appUrl = browser.runtime.getURL("index.html");
+  const appUrl = browser.runtime.getURL("src/index.html");
   // query for existing app tab
   const tabs = await browser.tabs.query({ url: appUrl });
   if (tabs.length > 0) {
@@ -29,6 +29,12 @@ browser.commands.onCommand.addListener((command) => {
   }
 });
 
+// welcome message
 browser.runtime.onInstalled.addListener(() => {
   console.log("Installed!");
+});
+
+// when a new tab is created send a message to the content script
+browser.tabs.onCreated.addListener((tab) => {
+  browser.tabs.sendMessage(tab.id, { message: "hello from background" });
 });

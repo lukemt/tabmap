@@ -6,7 +6,7 @@
   "base": "/appDist/",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base /appDist/ --outDir ../extension/appDist --emptyOutDir",
+    "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
