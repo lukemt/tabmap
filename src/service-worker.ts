@@ -3,7 +3,10 @@ import browser from "webextension-polyfill";
 const openApp = async () => {
   const appUrl = browser.runtime.getURL("src/index.html");
   // query for existing app tab
-  const tabs = await browser.tabs.query({ url: appUrl });
+  const tabs = await browser.tabs.query({
+    url: appUrl,
+    lastFocusedWindow: true,
+  });
   if (tabs.length > 0) {
     // if app tab exists, focus it
     await browser.tabs.update(tabs[0].id, { active: true });
