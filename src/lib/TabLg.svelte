@@ -6,7 +6,7 @@
 
 <div
   id="tab-{tabInfo.id}"
-  class="flex items-center gap-4 py-2 px-4 rounded-lg shadow-md bg-white dark:bg-black glass"
+  class="flex items-center gap-4 py-2 px-4 rounded-lg glass"
 >
   <div class="w-12 h-12 overflow-hidden">
     <img src={tabInfo.favIconUrl} class="w-12 h-12 mr-2" alt="" />

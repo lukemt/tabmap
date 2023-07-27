@@ -15,8 +15,5 @@
     <p class="truncate text-lg">
       {tabInfo.title}
     </p>
-    <p class="truncate">
-      {tabInfo.url}
-    </p>
   </div>
 </div>

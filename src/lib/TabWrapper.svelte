@@ -4,10 +4,12 @@
   import { onMount } from "svelte";
   import TabMd from "./TabMd.svelte";
   import TabLg from "./TabLg.svelte";
+  import TabXs from "./TabXs.svelte";
+  import TabSm from "./TabSm.svelte";
 
   export let tabInfo: TabInfo;
 
-  const size = Math.random() > 0.2 ? "md" : "lg";
+  const size = Math.floor(Math.random() * 4 + 1);
 
   onMount(() => {
     const startEl = document.getElementById(`tab-${tabInfo.parent}`);
@@ -26,7 +28,11 @@
 </script>
 
 <div id="tab-{tabInfo.id}" class="w-min">
-  {#if size === "md"}
+  {#if size === 1}
+    <TabXs {tabInfo} />
+  {:else if size === 2}
+    <TabSm {tabInfo} />
+  {:else if size === 3}
     <TabMd {tabInfo} />
   {:else}
     <TabLg {tabInfo} />
