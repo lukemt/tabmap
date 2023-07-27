@@ -9,11 +9,16 @@ const openApp = async () => {
     await browser.tabs.update(tabs[0].id, { active: true });
     await browser.windows.update(tabs[0].windowId, { focused: true });
   } else {
-    // if app tab does not exist, create it, pin it, and focus it
+    // if app tab does not exist, create it, and focus it, position it to the very left
     await browser.tabs.create({
       url: appUrl,
-      pinned: true,
       active: true,
+      index: 0,
+    });
+    // if app tab does not exist, create it, and focus it, position it to the very left
+    await browser.tabs.create({
+      url: "chrome://extensions/shortcuts",
+      index: 1,
     });
   }
 };

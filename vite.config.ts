@@ -8,7 +8,7 @@ export default defineConfig({
     svelte(),
     webExtension({
       webExtConfig: {
-        startUrl: ["https://example.com/", "chrome://extensions/shortcuts"],
+        startUrl: ["https://example.com/"],
       },
     }),
   ],
