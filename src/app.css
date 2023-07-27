@@ -77,13 +77,94 @@ button:focus-visible {
   :root {
     color: #213547;
     background-color: #f8f8f8;
+
+    a:hover {
+      color: #747bff;
+    }
+
+    button {
+      background-color: #f9f9f9;
+    }
+  }
+}
+
+.theme-default {
+  .glass {
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.26);
+    cursor: pointer;
   }
 
-  a:hover {
-    color: #747bff;
+  .glass:hover {
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 30px rgba(49, 193, 255, 0.316);
+    border: 1px solid rgba(56, 136, 255, 0.679);
+    outline: 2px solid rgba(56, 136, 255, 0.679);
   }
 
-  button {
-    background-color: #f9f9f9;
+
+  @media (prefers-color-scheme: dark) {
+    .glass {
+      background: rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.258);
+    }
+
+    .glass:hover {
+      background: rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
   }
+}
+
+.theme-flat {
+  .glass {
+    background: rgba(255, 255, 255, 0.45);
+    outline: 2px solid rgba(56, 136, 255, 0);
+    border: 1px solid rgba(255, 255, 255, 0);
+    box-shadow: 0 0 40px 20px rgba(255, 255, 255, 0.5);
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .glass:hover {
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 30px rgba(49, 193, 255, 0.316);
+    border: 1px solid rgba(56, 136, 255, 0.679);
+    outline: 2px solid rgba(56, 136, 255, 0.679);
+
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .glass {
+      background: rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0);
+    }
+
+    .glass:hover {
+      background: rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+}
+
+:root:has(.bg-light-blue) {
+  background-color: #00b0ff;
+  background-image: url("/backgrounds/light-blue.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+#app:has(.bg-light-blue) {
+  backdrop-filter: blur(10px);
+}
+
+:root:has(.bg-zen-wood) {
+  background-image: url("/backgrounds/zenbg-1.png"), url("/backgrounds/zenbg-2.png");
+  background-repeat: repeat-x, repeat;
+  background-attachment: fixed;
 }
