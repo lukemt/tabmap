@@ -202,4 +202,9 @@ export const data: TabInfoWithoutFavIconUrl[] = [
     url: "https://stackoverflow.blog/2023/06/26/the-hardest-part-of-building-software-is-not-coding-its-requirements/?utm_source=iterable&utm_medium=email&utm_campaign=the-overflow-newsletter",
     parent: 1,
   },
-];
+].map((item) => ({
+  ...item,
+  tabId: 0,
+  windowId: 0,
+  status: "openFront",
+}));
