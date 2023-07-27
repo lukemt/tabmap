@@ -15,11 +15,6 @@ const openApp = async () => {
       active: true,
       index: 0,
     });
-    // if app tab does not exist, create it, and focus it, position it to the very left
-    await browser.tabs.create({
-      url: "chrome://extensions/shortcuts",
-      index: 1,
-    });
   }
 };
 
@@ -36,7 +31,12 @@ browser.commands.onCommand.addListener((command) => {
 
 // welcome message
 browser.runtime.onInstalled.addListener(() => {
-  console.log("Installed!");
+  openApp();
+
+  browser.tabs.create({
+    url: "chrome://extensions/shortcuts",
+    index: 1,
+  });
 });
 
 // when a new tab is created send a message to the content script
