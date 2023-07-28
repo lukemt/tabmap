@@ -1,6 +1,6 @@
 <script lang="ts">
   import TabWrapper from "./TabWrapper.svelte";
-  import { getChildren } from "./getters";
+  import { getChildren } from "./stores/getters";
 
   import type { TabInfo } from "./types";
 

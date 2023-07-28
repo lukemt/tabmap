@@ -1,5 +1,5 @@
-import { data } from "./data";
-import type { TabInfo, TabInfoWithoutFavIconUrl } from "./types";
+import type { TabInfo, TabInfoWithoutFavIconUrl } from "../types";
+import { getData } from "./tabStoreCore";
 
 function withFaviconUrl(item: TabInfoWithoutFavIconUrl): TabInfo {
   // TODO: use extension api to get favicon url
@@ -11,11 +11,13 @@ function withFaviconUrl(item: TabInfoWithoutFavIconUrl): TabInfo {
 }
 
 export function getById(id: number): TabInfo {
-  return withFaviconUrl(data.find((item) => item.id === id));
+  return withFaviconUrl(getData().find((item) => item.id === id));
 }
 
 export function getChildren(parent: number): TabInfo[] {
-  return data.filter((item) => item.parent === parent).map(withFaviconUrl);
+  return getData()
+    .filter((item) => item.parent === parent)
+    .map(withFaviconUrl);
 }
 
 export function getCols(parent: TabInfo, maxLevel: number): TabInfo[][] {
@@ -30,4 +32,10 @@ export function getCols(parent: TabInfo, maxLevel: number): TabInfo[][] {
     currentParents = nextChildren;
   }
   return cols;
+}
+
+export function getAllOpenTabs(): TabInfoWithoutFavIconUrl[] {
+  return getData().filter(
+    (item) => item.status === "openFront" || item.status === "openBack"
+  );
 }

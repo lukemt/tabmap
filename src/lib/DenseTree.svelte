@@ -1,7 +1,7 @@
 <script lang="ts">
   import TabWrapper from "./TabWrapper.svelte";
 
-  import { getCols } from "./getters";
+  import { getCols } from "./stores/getters";
   import type { TabInfo } from "./types";
 
   export let parent: TabInfo;

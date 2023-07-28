@@ -3,7 +3,7 @@
   import viteLogo from "/vite.svg";
   import Counter from "./lib/Counter.svelte";
   import Tree from "./lib/Tree.svelte";
-  import { getChildren } from "./lib/getters";
+  import { getChildren } from "./lib/stores/getters";
 </script>
 
 <main class="theme-flat">

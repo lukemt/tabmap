@@ -1,6 +1,6 @@
-import type { TabInfo, TabInfoWithoutFavIconUrl } from "./types";
+import type { TabInfo, TabInfoWithoutFavIconUrl } from "../types";
 
-export const data: TabInfoWithoutFavIconUrl[] = [
+export const mockData: TabInfoWithoutFavIconUrl[] = [
   {
     id: 1,
     title: "Link Map",
