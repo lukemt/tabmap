@@ -1,6 +1,7 @@
 import browser from "webextension-polyfill";
 
-const openApp = async () => {
+async function openApp() {
+  console.log("openApp");
   const appUrl = browser.runtime.getURL("src/index.html");
   // query for existing app tab
   const tabs = await browser.tabs.query({
@@ -9,26 +10,33 @@ const openApp = async () => {
   });
   if (tabs.length > 0) {
     // if app tab exists, focus it
-    await browser.tabs.update(tabs[0].id, { active: true });
-    await browser.windows.update(tabs[0].windowId, { focused: true });
+    browser.tabs.update(tabs[0].id, { active: true });
+    return tabs[0];
   } else {
     // if app tab does not exist, create it, and focus it, position it to the very left
-    await browser.tabs.create({
+    return await browser.tabs.create({
       url: appUrl,
       active: true,
       index: 0,
     });
   }
-};
+}
+
+async function activateCommand() {
+  const tab = await openApp();
+
+  // send message to app
+  browser.tabs.sendMessage(tab.id, { message: "activate" });
+}
 
 // listen for click on extension icon
-browser.action.onClicked.addListener(openApp);
+browser.action.onClicked.addListener(activateCommand);
 
 // listen for keyboard shortcut
-browser.commands.onCommand.addListener((command) => {
+browser.commands.onCommand.addListener(async (command) => {
   console.log(`Command: ${command}`);
   if (command === "open-app") {
-    openApp();
+    await activateCommand();
   }
 });
 
