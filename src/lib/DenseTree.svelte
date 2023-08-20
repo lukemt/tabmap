@@ -2,9 +2,9 @@
   import TabWrapper from "./TabWrapper.svelte";
 
   import { getCols } from "./stores/getters";
-  import type { Site } from "./types";
+  import type { Page } from "./types";
 
-  export let parent: Site;
+  export let parent: Page;
 
   const tabsByCol = getCols(parent, 50);
 </script>

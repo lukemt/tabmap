@@ -1,7 +1,7 @@
-import type { Site, TabInfoWithoutFavIconUrl } from "../types";
+import type { Page, PageWithoutFavIconUrl } from "../types";
 import { getData } from "./tabStoreCore";
 
-function withFaviconUrl(item: TabInfoWithoutFavIconUrl): Site {
+function withFaviconUrl(item: PageWithoutFavIconUrl): Page {
   // TODO: use extension api to get favicon url
   const domain = new URL(item.url).hostname;
   return {
@@ -10,17 +10,17 @@ function withFaviconUrl(item: TabInfoWithoutFavIconUrl): Site {
   };
 }
 
-export function getById(id: number): Site {
+export function getById(id: number): Page {
   return withFaviconUrl(getData().find((item) => item.id === id));
 }
 
-export function getChildren(parent: number): Site[] {
+export function getChildren(parent: number): Page[] {
   return getData()
     .filter((item) => item.parent === parent)
     .map(withFaviconUrl);
 }
 
-export function getCols(parent: Site, maxLevel: number): Site[][] {
+export function getCols(parent: Page, maxLevel: number): Page[][] {
   const cols = [[parent]];
   let currentParents = [parent];
   for (let level = 1; level < maxLevel; level++) {
@@ -34,7 +34,7 @@ export function getCols(parent: Site, maxLevel: number): Site[][] {
   return cols;
 }
 
-export function getAllOpenTabs(): TabInfoWithoutFavIconUrl[] {
+export function getAllOpenTabs(): PageWithoutFavIconUrl[] {
   return getData().filter(
     (item) => item.status === "openFront" || item.status === "openBack"
   );

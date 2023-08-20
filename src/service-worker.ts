@@ -1,6 +1,6 @@
 import browser from "webextension-polyfill";
 import { getAllOpenTabs } from "./lib/stores/getters";
-import type { TabInfoWithoutFavIconUrl } from "./lib/types";
+import type { PageWithoutFavIconUrl } from "./lib/types";
 
 async function openApp() {
   console.log("openApp");
@@ -43,7 +43,7 @@ async function onStartup() {
   }
 }
 
-async function openTab(tabInfo: TabInfoWithoutFavIconUrl) {
+async function openTab(tabInfo: PageWithoutFavIconUrl) {
   console.log("openTab", { tabInfo });
   const existingTabs = await browser.tabs.query({ url: tabInfo.url });
   if (existingTabs.length > 0) {

@@ -1,4 +1,4 @@
-export interface Site {
+export interface Page {
   id: number;
   tabId: number;
   windowId: number;
@@ -9,5 +9,5 @@ export interface Site {
   status: "openFront" | "openBack" | "closed" | "archived" | "deleted";
 }
 
-export type TabInfoWithoutFavIconUrl = Omit<Site, "favIconUrl">;
+export type PageWithoutFavIconUrl = Omit<Page, "favIconUrl">;
 
