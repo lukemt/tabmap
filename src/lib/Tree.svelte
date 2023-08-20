@@ -2,9 +2,9 @@
   import TabWrapper from "./TabWrapper.svelte";
   import { getChildren } from "./stores/getters";
 
-  import type { TabInfo } from "./types";
+  import type { Site } from "./types";
 
-  export let parent: TabInfo;
+  export let parent: Site;
 
   const children = getChildren(parent.id);
 </script>

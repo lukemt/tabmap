@@ -1,13 +1,13 @@
 <script lang="ts">
   import LeaderLine from "leader-line-new";
-  import type { TabInfo } from "./types";
+  import type { Site } from "./types";
   import { onMount } from "svelte";
   import TabMd from "./TabMd.svelte";
   import TabLg from "./TabLg.svelte";
   import TabXs from "./TabXs.svelte";
   import TabSm from "./TabSm.svelte";
 
-  export let tabInfo: TabInfo;
+  export let tabInfo: Site;
 
   const size = Math.floor(Math.random() * 4 + 1);
 

@@ -1,10 +1,10 @@
-import type { TabInfo, TabInfoWithoutFavIconUrl } from "../types";
+import type { TabInfoWithoutFavIconUrl } from "../types";
 
 export const mockData: TabInfoWithoutFavIconUrl[] = [
   {
     id: 1,
     title: "Link Map",
-    url: "https://chrome.google.com/webstore/detail/link-map/jappgmhllahigjolfpgbjdfhciabdnde",
+    url: "chrome-extension://jappgmhllahigjolfpgbjdfhciabdnde/tree.html",
     parent: null,
   },
   {

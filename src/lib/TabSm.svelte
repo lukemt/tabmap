@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { TabInfo } from "./types";
+  import type { Site } from "./types";
 
-  export let tabInfo: TabInfo;
+  export let tabInfo: Site;
 </script>
 
 <div
