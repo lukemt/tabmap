@@ -1,7 +1,11 @@
-import browser from "webextension-polyfill";
+import * as browser from "webextension-polyfill";
 import { getAllOpenTabs } from "./lib/stores/getters";
 import type { PageWithoutFavIconUrl } from "./lib/types";
+import { attachObservers } from "./lib/stores/browserObservers";
 
+/**
+ * Opens or focuses the TabMap overview tab.
+ */
 async function openApp() {
   console.log("openApp");
   const appUrl = browser.runtime.getURL("src/index.html");
@@ -37,7 +41,6 @@ async function onStartup() {
       await openTab(tabInfo);
     } else if (tabInfo.status === "openBack") {
       const tab = await openTab(tabInfo);
-      // move tab to group
       moveToGroup(tab);
     }
   }
@@ -131,3 +134,5 @@ browser.runtime.onInstalled.addListener(({ reason }) => {
 });
 
 browser.runtime.onStartup.addListener(onStartup);
+
+attachObservers();
