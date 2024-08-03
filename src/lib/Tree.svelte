@@ -1,19 +1,16 @@
 <script lang="ts">
   import TabWrapper from "./TabWrapper.svelte";
-  import { getChildren } from "./stores/getters";
 
-  import type { Page } from "./types";
+  import type { PageTree } from "./types";
 
-  export let parent: Page;
-
-  const children = getChildren(parent.id);
+  export let page: PageTree;
 </script>
 
 <div class="flex justify-start items-center gap-28">
-  <TabWrapper tabInfo={parent} />
+  <TabWrapper {page} />
   <div class="flex flex-col gap-4">
-    {#each children as child}
-      <svelte:self parent={child} />
+    {#each page.children as child}
+      <svelte:self page={child} />
     {/each}
   </div>
 </div>

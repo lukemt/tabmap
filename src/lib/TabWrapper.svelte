@@ -7,13 +7,13 @@
   import TabXs from "./TabXs.svelte";
   import TabSm from "./TabSm.svelte";
 
-  export let tabInfo: Page;
+  export let page: Page;
 
   const size = Math.floor(Math.random() * 4 + 1);
 
   onMount(() => {
-    const startEl = document.getElementById(`tab-${tabInfo.parent}`);
-    const endEl = document.getElementById(`tab-${tabInfo.id}`);
+    const startEl = document.getElementById(`tab-${page.parent}`);
+    const endEl = document.getElementById(`tab-${page.id}`);
     if (!startEl || !endEl) {
       return;
     }
@@ -27,14 +27,14 @@
   });
 </script>
 
-<div id="tab-{tabInfo.id}" class="w-min">
+<div id="tab-{page.id}" class="w-min">
   {#if size === 1}
-    <TabXs {tabInfo} />
+    <TabXs tabInfo={page} />
   {:else if size === 2}
-    <TabSm {tabInfo} />
+    <TabSm tabInfo={page} />
   {:else if size === 3}
-    <TabMd {tabInfo} />
+    <TabMd tabInfo={page} />
   {:else}
-    <TabLg {tabInfo} />
+    <TabLg tabInfo={page} />
   {/if}
 </div>

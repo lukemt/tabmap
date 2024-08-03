@@ -3,7 +3,9 @@
   import viteLogo from "/vite.svg";
   import Counter from "./lib/Counter.svelte";
   import Tree from "./lib/Tree.svelte";
-  import { getChildren } from "./lib/stores/getters";
+  import { getPageTree } from "./lib/stores/getters";
+
+  const pageTrees = getPageTree(1);
 </script>
 
 <main class="theme-flat">
@@ -19,9 +21,9 @@
 
   <div class="card">
     <Counter />
-    {#each getChildren(1) as child}
+    {#each pageTrees as tree}
       <div class="my-16">
-        <Tree parent={child} />
+        <Tree page={tree} />
       </div>
     {/each}
   </div>

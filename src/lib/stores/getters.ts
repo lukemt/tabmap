@@ -1,4 +1,4 @@
-import type { Page, PageWithoutFavIconUrl } from "../types";
+import type { Page, PageTree, PageWithoutFavIconUrl } from "../types";
 import { getData } from "./tabStoreCore";
 
 function withFaviconUrl(item: PageWithoutFavIconUrl): Page {
@@ -38,4 +38,14 @@ export function getAllOpenTabs(): PageWithoutFavIconUrl[] {
   return getData().filter(
     (item) => item.status === "openFront" || item.status === "openBack"
   );
+}
+
+
+export function getPageTree(id: number): PageTree[] {
+  const items = getChildren(id);
+  const tree = items.map((item) => ({
+    ...item,
+    children: getPageTree(item.id),
+  }));
+  return tree;
 }
