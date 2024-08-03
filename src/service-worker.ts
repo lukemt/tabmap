@@ -58,7 +58,7 @@ async function openTab(tabInfo: PageWithoutFavIconUrl) {
   });
 }
 
-async function moveToGroup(tab) {
+async function moveToGroup(tab: any) {
   console.log("moveToGroup", { tab });
   // get group id
   const groupId = await getTabGroup();
@@ -100,7 +100,7 @@ async function activateCommand() {
   const tab = await openApp();
 
   // send message to app
-  browser.tabs.sendMessage(tab.id, { message: "activate" });
+  browser.tabs.sendMessage(tab.id!, { message: "activate" });
 }
 
 // listen for click on extension icon
