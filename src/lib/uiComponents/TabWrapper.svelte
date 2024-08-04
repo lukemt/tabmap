@@ -6,6 +6,7 @@
   import TabLg from "./TabLg.svelte";
   import TabXs from "./TabXs.svelte";
   import TabSm from "./TabSm.svelte";
+  import { openTabAction } from "../uiActions";
 
   export let page: Page;
 
@@ -27,7 +28,7 @@
   });
 </script>
 
-<div id="tab-{page.id}" class="w-min">
+<div id="tab-{page.id}" class="w-min" on:click={() => openTabAction(page.url)}>
   {#if size === 1}
     <TabXs tabInfo={page} />
   {:else if size === 2}
