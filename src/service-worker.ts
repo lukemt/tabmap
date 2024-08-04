@@ -136,3 +136,4 @@ browser.runtime.onInstalled.addListener(({ reason }) => {
 browser.runtime.onStartup.addListener(onStartup);
 
 attachObservers();
+listenForContentScriptMessages();
