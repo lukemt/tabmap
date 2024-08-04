@@ -1,8 +1,8 @@
 <script lang="ts">
   import TabWrapper from "./TabWrapper.svelte";
 
-  import { getCols } from "./stores/getters";
-  import type { Page } from "./types";
+  import { getCols } from "../stores/getters";
+  import type { Page } from "../types";
 
   export let parent: Page;
 

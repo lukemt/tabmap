@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Counter from "./lib/Counter.svelte";
-  import Tree from "./lib/Tree.svelte";
+  import Counter from "./lib/uiComponents/Counter.svelte";
+  import Tree from "./lib/uiComponents/Tree.svelte";
   import { getPageTree } from "./lib/stores/getters";
 
   const pageTrees = getPageTree(1);

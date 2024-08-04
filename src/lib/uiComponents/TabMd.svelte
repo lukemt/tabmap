@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Page } from "./types";
+  import type { Page } from "../types";
 
   export let tabInfo: Page;
 </script>
@@ -14,6 +14,9 @@
   <div class="text-left w-52">
     <p class="truncate text-lg">
       {tabInfo.title}
+    </p>
+    <p class="truncate">
+      {tabInfo.url}
     </p>
   </div>
 </div>

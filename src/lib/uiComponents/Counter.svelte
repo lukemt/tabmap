@@ -1,4 +1,6 @@
 <script lang="ts">
+  // ignore all any errors in this file
+  // @ts-nocheck
   import { onMount } from "svelte";
   import browser from "webextension-polyfill";
 

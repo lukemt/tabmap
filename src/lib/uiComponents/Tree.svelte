@@ -1,7 +1,7 @@
 <script lang="ts">
   import TabWrapper from "./TabWrapper.svelte";
 
-  import type { PageTree } from "./types";
+  import type { PageTree } from "../types";
 
   export let page: PageTree;
 </script>

@@ -13,3 +13,4 @@ export type PageWithoutFavIconUrl = Omit<Page, "favIconUrl">;
 
 
 export type PageTree = (Page & { children: PageTree[] });
+
