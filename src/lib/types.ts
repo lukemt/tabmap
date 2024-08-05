@@ -5,12 +5,9 @@ export interface Page {
   title: string;
   url: string;
   favIconUrl: string;
-  parent: number;
+  childrenIds: number[];
   status: "openFront" | "openBack" | "closed" | "archived" | "deleted";
 }
 
-export type PageWithoutFavIconUrl = Omit<Page, "favIconUrl">;
-
-
-export type PageTree = (Page & { children: PageTree[] });
+export type PageTree = (Page & { children: PageTree[], parent: number });
 

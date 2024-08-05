@@ -1,6 +1,5 @@
-import type { PageWithoutFavIconUrl } from "../types";
 
-export const mockData: PageWithoutFavIconUrl[] = [
+export const mockData = [
   {
     id: 1,
     title: "Link Map",
@@ -202,9 +201,4 @@ export const mockData: PageWithoutFavIconUrl[] = [
     url: "https://stackoverflow.blog/2023/06/26/the-hardest-part-of-building-software-is-not-coding-its-requirements/?utm_source=iterable&utm_medium=email&utm_campaign=the-overflow-newsletter",
     parent: 1,
   },
-].map((item, index) => ({
-  ...item,
-  tabId: 0,
-  windowId: 0,
-  status: index < 3 ? "openFront" : "openBack",
-}));
+]

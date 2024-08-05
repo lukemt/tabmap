@@ -3,6 +3,7 @@
   import Tree from "./lib/uiComponents/Tree.svelte";
   import { getPageTree } from "./lib/stores/getters";
   import FocusOverlay from "./lib/uiComponents/FocusOverlay.svelte";
+  import DenseTree from "./lib/uiComponents/DenseTree.svelte";
 
   const pageTrees = getPageTree(1);
 </script>
@@ -12,8 +13,10 @@
 <main class="theme-default">
   <div class="card">
     <Counter />
+
     {#each pageTrees as tree}
       <div class="my-16">
+        <!-- <DenseTree parent={tree} /> -->
         <Tree page={tree} />
       </div>
     {/each}

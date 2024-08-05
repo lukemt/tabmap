@@ -1,27 +1,10 @@
-import type { Page, PageTree, PageWithoutFavIconUrl } from "../types";
-import { getData } from "./tabStoreCore";
-
-function withFaviconUrl(item: PageWithoutFavIconUrl): Page {
-  // TODO: use extension api to get favicon url
-  const domain = new URL(item.url).hostname;
-  return {
-    ...item,
-    favIconUrl: `https://www.google.com/s2/favicons?domain=${domain}&sz=${"64"}`,
-  };
-}
-
-export function getById(id: number): Page | undefined {
-  const page = getData().find((item) => item.id === id)
-  if (page) {
-    return withFaviconUrl(page);
-  }
-  return undefined;
-}
+import type { Page, PageTree } from "../types";
+import { pages } from "./pagesStore";
 
 export function getChildren(parent: number): Page[] {
-  return getData()
-    .filter((item) => item.parent === parent)
-    .map(withFaviconUrl);
+  const page = pages.get(parent)
+  if (!page) return []
+  return page.childrenIds.map(id => pages.get(id)!)
 }
 
 export function getCols(parent: Page, maxLevel: number): Page[][] {
@@ -38,18 +21,11 @@ export function getCols(parent: Page, maxLevel: number): Page[][] {
   return cols;
 }
 
-export function getAllOpenTabs(): PageWithoutFavIconUrl[] {
-  return getData().filter(
-    (item) => item.status === "openFront" || item.status === "openBack"
-  );
-}
-
-
-export function getPageTree(id: number): PageTree[] {
-  const items = getChildren(id);
-  const tree = items.map((item) => ({
-    ...item,
-    children: getPageTree(item.id),
-  }));
-  return tree;
+export function getPageTree(parentId: number): PageTree[] {
+  return getChildren(parentId)
+    .map((item) => ({
+      ...item,
+      parent: parentId,
+      children: getPageTree(item.id),
+    }));
 }

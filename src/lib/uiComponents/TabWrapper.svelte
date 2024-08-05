@@ -1,6 +1,6 @@
 <script lang="ts">
   import LeaderLine from "leader-line-new";
-  import type { Page } from "../types";
+  import type { Page, PageTree } from "../types";
   import { onMount } from "svelte";
   import TabMd from "./TabMd.svelte";
   import TabLg from "./TabLg.svelte";
@@ -8,7 +8,7 @@
   import TabSm from "./TabSm.svelte";
   import { openTabAction } from "../uiActions";
 
-  export let page: Page;
+  export let page: PageTree;
 
   const size = Math.floor(Math.random() * 4 + 1);
 
