@@ -2,9 +2,12 @@
   import Counter from "./lib/uiComponents/Counter.svelte";
   import Tree from "./lib/uiComponents/Tree.svelte";
   import { getPageTree } from "./lib/stores/getters";
+  import FocusOverlay from "./lib/uiComponents/FocusOverlay.svelte";
 
   const pageTrees = getPageTree(1);
 </script>
+
+<FocusOverlay />
 
 <main class="theme-default">
   <div class="card">

@@ -29,9 +29,10 @@
         increment();
         if (!document.hasFocus()) {
           window.focus();
-          alert(
-            "TabMap lost the keyboard focus. \n\nClick on 'ok' to bring it back."
-          );
+          // alert(
+          //   "TabMap lost the keyboard focus. \n\nClick 'ok' to bring it back."
+          // );
+          console.log("TabMap lost the keyboard focus.");
         }
       }
     };
@@ -64,9 +65,14 @@
         if (document.visibilityState === "visible") {
           console.log("Window focus lost detected");
         }
-      }, 0);
+      }, 100);
     };
     window.addEventListener("blur", focusListener);
+
+    // if window gets focus log it
+    window.addEventListener("focus", () => {
+      console.log("Window focus detected");
+    });
 
     // clean up
     return () => {
