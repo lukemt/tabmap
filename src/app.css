@@ -124,7 +124,6 @@ button:focus-visible {
     outline: 2px solid rgba(56, 136, 255, 0);
     border: 1px solid rgba(255, 255, 255, 0);
     box-shadow: 0 0 40px 20px rgba(255, 255, 255, 0.5);
-    transition: all 0.2s ease;
     cursor: pointer;
   }
 
@@ -133,7 +132,7 @@ button:focus-visible {
     box-shadow: 0 4px 30px rgba(49, 193, 255, 0.316);
     border: 1px solid rgba(56, 136, 255, 0.679);
     outline: 2px solid rgba(56, 136, 255, 0.679);
-
+    transition: all 0.2s ease;
   }
 
   @media (prefers-color-scheme: dark) {

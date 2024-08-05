@@ -10,8 +10,12 @@ function withFaviconUrl(item: PageWithoutFavIconUrl): Page {
   };
 }
 
-export function getById(id: number): Page {
-  return withFaviconUrl(getData().find((item) => item.id === id));
+export function getById(id: number): Page | undefined {
+  const page = getData().find((item) => item.id === id)
+  if (page) {
+    return withFaviconUrl(page);
+  }
+  return undefined;
 }
 
 export function getChildren(parent: number): Page[] {

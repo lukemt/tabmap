@@ -1,6 +1,4 @@
 import * as browser from "webextension-polyfill";
-import { getAllOpenTabs } from "./lib/stores/getters";
-import type { PageWithoutFavIconUrl } from "./lib/types";
 import { attachObservers } from "./lib/stores/browserObservers";
 import { listenForContentScriptMessages } from "./lib/messageBroker/service-worker-message-broker";
 
