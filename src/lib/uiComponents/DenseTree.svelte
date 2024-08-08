@@ -15,7 +15,7 @@
     <!-- col -->
     <div class="flex flex-col justify-center items-center gap-4">
       {#each tabs as tabInfo}
-        <TabWrapper page={tabInfo} />
+        <TabWrapper page={tabInfo} parentId={parent.id} />
       {/each}
     </div>
   {/each}

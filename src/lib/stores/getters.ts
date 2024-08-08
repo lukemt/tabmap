@@ -1,10 +1,10 @@
-import type { Page, PageTree } from "../types";
-import { pages } from "./pagesStore";
+import type { Page } from "../types";
+import { pagesStore } from "./pagesStore";
 
 export function getChildren(parent: number): Page[] {
-  const page = pages.get(parent)
+  const page = pagesStore.get(parent)
   if (!page) return []
-  return page.childrenIds.map(id => pages.get(id)!)
+  return page.childrenIds.map(id => pagesStore.get(id)!)
 }
 
 export function getCols(parent: Page, maxLevel: number): Page[][] {
@@ -19,13 +19,4 @@ export function getCols(parent: Page, maxLevel: number): Page[][] {
     currentParents = nextChildren;
   }
   return cols;
-}
-
-export function getPageTree(parentId: number): PageTree[] {
-  return getChildren(parentId)
-    .map((item) => ({
-      ...item,
-      parent: parentId,
-      children: getPageTree(item.id),
-    }));
 }

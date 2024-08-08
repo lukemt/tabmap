@@ -2,12 +2,16 @@ export interface Page {
   id: number;
   tabId: number;
   windowId: number;
-  title: string;
-  url: string;
-  favIconUrl: string;
+  title?: string;
+  url?: string;
+  favIconUrl?: string;
   childrenIds: number[];
-  status: "openFront" | "openBack" | "closed" | "archived" | "deleted";
+  navigatedToIds: number[];
+  status: "open" | "navigatedAway" | "closed" | "archived" | "deleted";
+  groupId?: number;
+  incognito: boolean;
+  pinned: boolean;
+  createdAt: number;
+  lastAccessedAt: number;
 }
-
-export type PageTree = (Page & { children: PageTree[], parent: number });
 
