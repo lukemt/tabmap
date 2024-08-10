@@ -1,3 +1,4 @@
+import { tick } from "svelte";
 import type { Page } from "../types";
 import { mockData } from "./mockData";
 import { writable, type Writable } from "svelte/store";
@@ -61,7 +62,10 @@ function set(id: number, page: Page) {
   console.log("pagesStore.set()", { id, page })
   pagesMap.set(id, page)
   subscribedPages.get(id)?.set(page)
-  mutationListeners.forEach(callback => callback(page));
+  // TODO: Perf Opt: Check if a DOMMutationObserver would do less calls
+  tick().then(() => {
+    mutationListeners.forEach(callback => callback(page));
+  })
 }
 
 
