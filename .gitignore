@@ -25,3 +25,6 @@ dist-ssr
 
 # individual webext config
 .webextrc
+
+# WIP docs
+docs/WIP/
