@@ -35,5 +35,4 @@ export function dragToScroll(scrollElement: HTMLElement) {
       scrollElement.scrollTop = initialScrollTop - deltaY;
     }
   });
-
 }

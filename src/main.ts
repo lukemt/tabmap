@@ -1,6 +1,6 @@
 import './app.css'
 import App from './App.svelte'
-import { dragToScroll } from './dragToScroll'
+import { dragToScroll } from './lib/dragToScroll'
 import { initContentMessageBroker } from './lib/messageBroker/content-message-broker'
 import { attachObservers } from './lib/stores/browserObservers'
 
