@@ -5,6 +5,15 @@ const logEvent = (eventName: string) =>
   (...args: any) =>
     console.log(`tabs.${eventName}`, { args });
 
+function getTabUrl(tab: browser.Tabs.Tab) {
+  const tabUrl = tab.pendingUrl ?? tab.url;
+  if (!tabUrl) {
+    console.error("tab.url is undefined", { tab });
+    return "about:blank";
+  }
+  return tabUrl;
+}
+
 export async function attachObservers() {
   // observe creation of new tabs
   browser.tabs.onCreated.addListener((tab) => {
@@ -20,7 +29,7 @@ export async function attachObservers() {
       id: pageId,
       tabId: tab.id,
       windowId: tab.windowId,
-      url: tab.url,
+      url: getTabUrl(tab),
       title: tab.title,
       favIconUrl: tab.favIconUrl,
       childrenIds: [],
@@ -83,7 +92,7 @@ export async function attachObservers() {
         id: newPageId,
         tabId: tab.id,
         windowId: tab.windowId,
-        url: tab.url,
+        url: getTabUrl(tab),
         title: tab.title,
         favIconUrl: tab.favIconUrl,
         childrenIds: [],
@@ -143,7 +152,7 @@ export async function attachObservers() {
       id: pageId,
       tabId: tab.id,
       windowId: tab.windowId,
-      url: tab.url,
+      url: getTabUrl(tab),
       title: tab.title,
       favIconUrl: tab.favIconUrl,
       childrenIds: [],

@@ -3,7 +3,7 @@ export interface Page {
   tabId: number;
   windowId: number;
   title?: string;
-  url?: string;
+  url: string;
   favIconUrl?: string;
   childrenIds: number[];
   navigatedToIds: number[];
