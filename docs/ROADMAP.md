@@ -5,9 +5,12 @@
 - [ ] browser events
   - [ ] implement all browser events
   - [ ] rename / move events to a better location
+- [ ] Keyboard shortcuts implementation
+- [ ] search funtionality
 - [ ] implement changelog file
   - [ ] ai play
   - [ ] also with the commits flow
+- [ ] Add proper documentation as outlined in continue history
 - [ ] implement openTab correctly
   - by using the tabId and/or updating the tabId correctly
   - think about how to deal with browser back and forth stuff
