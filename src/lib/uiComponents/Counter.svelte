@@ -40,7 +40,7 @@
 
     // keyboard shortcut
     const keyboardListener = (event) => {
-      console.log(`Keyboard event detected: ${event}`);
+      console.log("Keydown event detected:", event);
       if (event.key === "o") {
         increment();
         console.log("Keyboard shortcut detected: Ctrl+O");
