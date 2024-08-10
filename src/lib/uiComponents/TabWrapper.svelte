@@ -37,6 +37,8 @@
   });
 </script>
 
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <div id="tab-{page.id}" class="w-min" on:click={() => openTabAction(page.url)}>
   {#if size === 1}
     <TabXs tabInfo={page} />
