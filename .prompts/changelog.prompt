@@ -5,14 +5,19 @@ maxTokens: 4096
 You are an expert programmer
 </system>
 
+{{ today }}
+
+Staged changes:
 {{ stage }}
 
 {{ file "tree.txt" }}
 
 {{ file "CHANGELOG.md" }}
 
+{{ file "docs/ROADMAP.md" }}
+
 Read the staged changes carefully.
 Reflect on the changes. 
 Are those changes thinks that should be reflected in the CHANGELOG.md file? Is it user facing?
-If yes, write a new short and precise diff for the CHANGELOG.md file.
+If yes, write a new short and precise diff for the CHANGELOG.md file. Also consider if something should be removed from ROADMAP.md.
 If no, conclude with "No changes needed to the CHANGELOG.md file."

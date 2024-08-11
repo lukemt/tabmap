@@ -10,9 +10,6 @@
   - think about how to deal with browser back and forth stuff
 - [ ] Keyboard shortcuts implementation
 - [ ] search functionality
-- [x] implement changelog file
-  - [x] ai play
-  - [x] also with the commits flow
 - [ ] Add proper documentation as outlined in continue history
 
 ## Some day
