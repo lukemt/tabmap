@@ -9,3 +9,9 @@ All notable changes to this project will be documented in this file. The format 
 - Gitmoji support for commit messages.
 - Prompts for changelog generation and gitmoji documentation.
 - Initial implementation of the changelog file and roadmap updates.
+
+## [0.1.0] - 2024-08-11
+
+### Added
+
+- Changelog file for tracking project changes.
