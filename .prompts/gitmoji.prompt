@@ -1,0 +1,16 @@
+temperature: 1
+maxTokens: 4096
+---
+<system>
+You are an expert programmer
+</system>
+
+{{ file ".prompts/gitmoji_documentation.txt" }}
+
+{{ stage }}
+
+{{ file "tree.txt" }}
+
+Read the gitmoji_documentation and the staged changes carefully.
+Give me a commit message for the staged changes with a gitmoji (with gitmoji code).
+Brainstorm first.

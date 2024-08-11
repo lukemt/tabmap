@@ -1,0 +1,78 @@
+├── README.md
+├── dist
+|  ├── backgrounds
+|  |  ├── cosy-bed.jpg
+|  |  ├── light-blue.jpg
+|  |  ├── zenbg-1.png
+|  |  └── zenbg-2.png
+|  ├── index.css
+|  ├── manifest.json
+|  ├── src
+|  |  ├── index.html
+|  |  ├── index.js
+|  |  └── service-worker.js
+|  └── vite.svg
+├── docs
+|  ├── ROADMAP.md
+|  └── WIP
+|     ├── docs.md
+|     ├── mermaid.md
+|     └── service-worker-open-tabs.ts.txt
+├── manifest.json
+├── node_modules
+|  ├── @eslint
+|  ├── @eslint-community
+|  ├── @sveltejs
+|  ├── @tsconfig
+|  ├── @types
+├── package-lock.json
+├── package.json
+├── pnpm-lock.yaml
+├── postcss.config.js
+├── public
+|  └── backgrounds
+|     ├── light-blue.jpg
+|     ├── zenbg-1.png
+|     └── zenbg-2.png
+├── src
+|  ├── App.svelte
+|  ├── app.css
+|  ├── assets
+|  ├── index.html
+|  ├── lib
+|  |  ├── dragToScroll.ts
+|  |  ├── messageBroker
+|  |  |  ├── content-message-broker.ts
+|  |  |  ├── content-message-handlers.ts
+|  |  |  ├── service-worker-message-broker.ts
+|  |  |  └── service-worker-message-handlers.ts
+|  |  ├── openTab.ts
+|  |  ├── stores
+|  |  |  ├── browserObservers.ts
+|  |  |  ├── getters.ts
+|  |  |  ├── mockData.ts
+|  |  |  ├── pagesStore.ts
+|  |  |  └── setters.ts
+|  |  ├── types.ts
+|  |  ├── uiActions.ts
+|  |  └── uiComponents
+|  |     ├── Counter.svelte
+|  |     ├── DenseTree.svelte
+|  |     ├── FocusOverlay.svelte
+|  |     ├── TabLg.svelte
+|  |     ├── TabMd.svelte
+|  |     ├── TabSm.svelte
+|  |     ├── TabWrapper.svelte
+|  |     ├── TabXs.svelte
+|  |     └── Tree.svelte
+|  ├── main.ts
+|  ├── service-worker.ts
+|  └── vite-env.d.ts
+├── svelte.config.js
+├── tailwind.config.js
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
+
+directory: 19 file: 56 symboliclink: 23
+
