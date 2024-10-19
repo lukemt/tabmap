@@ -1,0 +1,18 @@
+# root
+## ignore
+.webextrc
+package-lock.json
+pnpm-lock.yaml
+
+# src
+## ignore
+FocusOverlay.svelte
+Counter.svelte
+messageBroker/*
+assets/*
+
+# docs
+## ignore
+WIP/*
+
+# ignore all other root dirs

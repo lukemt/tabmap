@@ -14,4 +14,3 @@ export interface Page {
   createdAt: number;
   lastAccessedAt: number;
 }
-

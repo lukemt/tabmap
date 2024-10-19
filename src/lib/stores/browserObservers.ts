@@ -14,6 +14,10 @@ function getTabUrl(tab: browser.Tabs.Tab) {
   return tabUrl;
 }
 
+function wasOpenedByAnotherTab(tab: browser.Tabs.Tab): tab is browser.Tabs.Tab & { openerTabId: number } {
+  return !!tab.openerTabId && tab.pendingUrl !== "chrome://newtab/";
+}
+
 export async function attachObservers() {
   // observe creation of new tabs
   browser.tabs.onCreated.addListener((tab) => {
@@ -42,7 +46,7 @@ export async function attachObservers() {
       lastAccessedAt: Date.now(),
     })
 
-    if (tab.openerTabId) {
+    if (wasOpenedByAnotherTab(tab)) {
       // tab was opened by another tab
       console.log("tab was opened by another tab", { tab });
       const parentPage = pagesStore.getByTabId(tab.openerTabId);
